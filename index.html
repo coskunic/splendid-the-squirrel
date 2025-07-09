@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splendid: Süper Sincap!</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        color: #333;
+        line-height: 1.6;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background-color: #4682b4;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        flex-shrink: 0;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+
+      main {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        max-width: 100vw;
+        width: 100%;
+        height: calc(100vh - 4.5rem);
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .splendid-container {
+        position: relative;
+        flex: 0 0 50%;
+        height: 100%;
+        background: linear-gradient(to bottom, #87ceeb, #a3d9f0);
+        overflow: hidden;
+        border-radius: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: none;
+      }
+
+      .splendid-image {
+        max-width: 50%;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 10;
+        animation: splendid-wobble 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes splendid-wobble {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .cloud {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+        animation: cloudDescend var(--cloud-speed) linear infinite;
+        z-index: 5;
+        opacity: 1;
+      }
+
+      .cloud-1 {
+        width: 150px;
+        height: 80px;
+        top: -100px;
+        left: 15%;
+        --cloud-speed: 1s;
+        animation-delay: 0s;
+      }
+
+      .cloud-2 {
+        width: 200px;
+        height: 100px;
+        top: -150px;
+        left: 60%;
+        --cloud-speed: 0.7s;
+        animation-delay: 0s;
+      }
+
+      .cloud-3 {
+        width: 100px;
+        height: 60px;
+        top: -80px;
+        left: 35%;
+        --cloud-speed: 0.8s;
+        animation-delay: 0s;
+      }
+
+      @keyframes cloudDescend {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        80% {
+          transform: translateY(calc(100vh - 50px));
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(calc(100vh + 150px));
+          opacity: 0;
+        }
+      }
+
+      .right-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 50%;
+        padding: 20px;
+        gap: 20px;
+        height: 100%;
+        overflow-y: hidden;
+        text-align: center;
+      }
+
+      /* BİLGİ KISMI - Splendid Kimdir? ve paragrafı */
+      .character-intro {
+        flex: 1; /* Sağ yarımın 1/3'ünü kapla */
+        /* background-color: #fcfdff; */
+        background-color: #fbfbfd;
+        color: #4682b4;
+        border-radius: 8px;
+        /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); */
+        /* padding: 20px ; */
+        /* padding-left: 20px;
+        padding-right: 20px; */
+        overflow-y: auto; /* Kendi içeriği taşarsa kaydırma çubuğu çıksın */
+      }
+
+      .character-intro h2 {
+        color: #4682b4;
+        margin-top: 0;
+        margin-bottom: 0;
+        /* border-bottom: 2px solid #eee; */
+        /* padding-bottom: 10px; */
+      }
+
+      /* ÖZELLİKLER VE GÜÇLER LİSTELERİ */
+      .character-details {
+        flex: 1;
+        color: #4682b4;
+        border-radius: 8px;
+        /* Yeni eklenen veya güncellenen satırlar */
+        display: flex; /* Flexbox kullanmaya başla */
+        flex-direction: column; /* İçerikleri dikey hizala */
+        justify-content: center; /* Dikeyde ortala */
+        align-items: center; /* Yatayda ortala (içerik küçülürse) */
+        gap: 20px; /* prop-box'lar arasına boşluk ekle */
+        /* padding: 20px; */ /* İhtiyaca göre padding ekleyebilirsin */
+        overflow-y: auto;
+      }
+
+      .character-details h3 {
+        color: #5f9ea0;
+        margin-top: 0;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+      }
+
+      ul li {
+        border-radius: 4px;
+      }
+
+      .prop-box-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Kutuları yatayda ortala */
+        gap: 20px; /* Kutular arasına boşluk ekle */
+        width: 100%; /* Tüm genişliği kullan */
+      }
+
+      .prop-box {
+        flex: 1;
+        min-width: 250px;
+        border-radius: 8px;
+        padding: 15px;
+        background-color: #fbfbfd;
+      }
+
+      .prop-box h3 {
+        margin-top: 0;
+        color: #4682b4;
+      }
+
+      .survey-section {
+        flex: 1;
+        background-color: #fbfbfd;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        color: #4682b4;
+        text-align: center;
+        padding: 20px;
+        overflow-y: auto;
+      }
+
+      @media (max-width: 768px) {
+        html,
+        body {
+          overflow-y: auto;
+        }
+
+        main {
+          flex-direction: column;
+          padding: 15px;
+          margin: 15px auto;
+          height: auto;
+        }
+
+        .splendid-container {
+          height: 30vh;
+        }
+
+        .right-content-wrapper {
+          flex: 1;
+          height: auto;
+          padding: 0;
+          gap: 15px;
+        }
+
+        .character-intro,
+        .character-details,
+        .survey-section {
+          padding: 15px;
+          overflow-y: auto;
+        }
+
+        .prop-box-wrapper {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .prop-box {
+          min-width: unset;
+        }
+
+        .survey-section {
+          flex: 0 0 auto;
+          height: auto;
+          min-height: 100px;
+        }
+
+        form div {
+          padding-left: 30px;
+        }
+
+        button {
+          background-color: ;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Splendid: Süper Sincap!</h1>
+    </header>
+    <main>
+      <div class="splendid-container">
+        <img
+          src="images/splendid.webp"
+          alt="Splendid uçuyor"
+          class="splendid-image"
+        />
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+      </div>
+      <div class="right-content-wrapper">
+        <div class="character-intro">
+          <h2>Splendid Kimdir?</h2>
+          <p>
+            Splendid, Happy Tree Friends evreninin kendiyle çelişen süper
+            kahramanıdır. <br />
+            Mavi renkli pelerini ve inanılmaz güçleriyle tanınır. Tıpkı Superman
+            gibi, o da genellikle son anda ortaya çıkarak günü kurtarmaya
+            çalışır. <br />Ancak, süper güçlerini kullanmadaki beceriksizliği
+            yüzünden, iyi niyetli çabaları çoğu zaman trajik ve komik sonuçlara
+            yol açar. <br />
+            Hızlı uçar, süper gücü vardır ve lazer bakışlarıyla her şeyi
+            yakabilir. <br />
+            Ne yazık ki, bu güçleri genellikle kurtarmaya çalıştığı masum
+            kurbanların başına iş açar. <br />
+            Yine de, her zaman doğru olanı yapmaya çalışır!
+          </p>
+        </div>
+
+        <div class="character-details">
+          <div class="prop-box-wrapper">
+            <div class="prop-box">
+              <h3>Özellikleri</h3>
+              <ul>
+                <li>Uçan sincap</li>
+                <li>Mavi kürk üzeri kırmızı maske</li>
+                <li>The Daily Acorn gazetesinde muhabir</li>
+              </ul>
+            </div>
+            <div class="prop-box">
+              <h3>Süper Güçleri</h3>
+              <ul>
+                <li>Lazer Gözler</li>
+                <li>Dökülmeyen Tüyler</li>
+                <li>Yanmaz Yapışmaz Pelerin</li>
+              </ul>
+            </div>
+            <div class="prop-box">
+              <h3>Düşmanları</h3>
+              <ul>
+                <li>Splendidn't</li>
+                <li>Splendon't</li>
+                <li>Splendoesn't</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="survey-section">
+          <h3>Kahraman Ekibine Katıl!</h3>
+          <form action="">
+            <div>
+              <label for="isim-soyisim">İsim ve soyisim:</label>
+              <input
+                id="isim-soyisim"
+                type="text"
+                placeholder="İsim ve soyisim yazın."
+                required
+              />
+              <label for="kahraman">Süper kahraman adı:</label>
+              <input
+                id="kahraman"
+                type="text"
+                required
+                placeholder="Süper kahraman adı yazın."
+              />
+            </div>
+            <div>
+              <label for="super-guc">En sevdiğiniz süper güç:</label>
+              <input
+                id="super-guc"
+                type="text"
+                required
+                placeholder="En sevdiğiniz süper gücü yazın."
+              />
+              <label for="basvuru-mesaji">Başvuru mesajı:</label>
+              <input id="basvuru-mesaji" type="area" required />
+            </div>
+            <button type="submit">Gönder</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
