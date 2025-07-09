@@ -199,7 +199,6 @@
         width: 100%;
       }
 
-      /* PROP-BOX İÇERİĞİNİ DİKEYDE ORTALAMA */
       .prop-box {
         flex: 1;
         min-width: 250px;
@@ -246,54 +245,45 @@
         margin-bottom: 20px;
       }
 
-      /* Form elemanları için genel stil */
       .survey-section form {
         display: flex;
-        flex-direction: column; /* Tüm form grupları ve buton alt alta */
+        flex-direction: column;
         gap: 20px;
         align-items: center;
       }
 
-      /* Formun her bir yatay satırını sarmalayan divler (form-row) */
       .form-row {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center; /* İçindeki input-div'leri ortala */
-        gap: 20px; /* input-div'ler arası boşluk */
+        justify-content: center;
+        gap: 20px;
         width: 100%;
         max-width: 840px;
       }
 
-      /* Her bir label-input/textarea çiftini saran div için stil */
-      /* Geniş ekranlarda label ve input/textarea alt alta kalacak */
       .survey-section form div {
         display: flex;
-        flex-direction: column; /* Label ve input/textarea alt alta */
-        gap: 8px; /* Label ve input arasına boşluk */
-
-        /* form-row içinde 2 element yan yana olacak şekilde genişlik */
+        flex-direction: column;
+        gap: 8px;
         flex: 1 1 calc(50% - 20px);
-        min-width: 280px; /* Çok daralmasın */
-        max-width: 400px; /* Çok genişlemesin */
-        text-align: left; /* Metin hizalamasını koru */
+        min-width: 280px;
+        max-width: 400px;
+        text-align: left;
       }
 
-      /* Label'lar için varsayılan stil (geniş ekranlarda da) */
       .survey-section label {
         font-weight: bold;
-        margin-bottom: 5px; /* Label altına boşluk bırak */
-        /* Önceden belirlenen sabit genişlik ve hizalama kaldırıldı */
-        width: auto; /* Genişliği içeriğe göre ayarla */
-        text-align: left; /* Sola hizala */
+        margin-bottom: 5px;
+        width: auto;
+        text-align: left;
       }
 
-      /* Input ve textarea'ların kalan alanı kaplamasını sağla */
       .survey-section input[type="text"],
       .survey-section textarea {
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        width: 100%; /* İçinde bulunduğu div'in tam genişliğini kapla */
+        width: 100%;
         box-sizing: border-box;
       }
 
@@ -302,7 +292,6 @@
         resize: vertical;
       }
 
-      /* Buton stili */
       .survey-section button {
         background-color: #4682b4;
         color: white;
@@ -318,9 +307,6 @@
         background-color: #5f9ea0;
       }
 
-      /* ========================================================= */
-      /* =================== MOBİL DÜZENLEMELER ================== */
-      /* ========================================================= */
       @media (max-width: 768px) {
         html,
         body {
@@ -358,7 +344,6 @@
           gap: 15px;
         }
 
-        /* PROP-BOX İÇERİĞİ MOBİL DÜZENLEME */
         .prop-box {
           justify-content: flex-start;
           align-items: flex-start;
@@ -376,15 +361,14 @@
         }
 
         .form-row {
-          flex-direction: column; /* Mobil'de her bir satırı alt alta getir */
+          flex-direction: column;
           gap: 15px;
           width: 90%;
           max-width: unset;
         }
 
-        /* Mobil'de her bir label-input/textarea çifti alt alta kalmaya devam edecek */
         .survey-section form div {
-          flex-direction: column; /* Zaten varsayılan, ama belirtmekte fayda var */
+          flex-direction: column;
           align-items: flex-start;
           padding-left: 0;
           width: 100%;
@@ -508,7 +492,7 @@
                 <label for="basvuru-mesaji">Başvuru mesajı:</label>
                 <textarea
                   id="basvuru-mesaji"
-                  placeholder="Başvuru mesajınızı buraya yazın..."
+                  placeholder="Başvuru mesajınızı buraya yazın."
                   required
                 ></textarea>
               </div>
